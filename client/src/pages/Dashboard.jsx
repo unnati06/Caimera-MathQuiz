@@ -1,10 +1,9 @@
 import React from 'react'
-import QuizRoom from '../components/QuizRoom'
 import Quiz from '../components/Quiz'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className='dashboard'>
      <Quiz />
     </div>
   )

@@ -1,0 +1,78 @@
+/* Gradient background for the entire page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1F2B37, #E949DB, #04165D, #77F2A1);
+    background-size: 200% 200%;
+    animation: gradientAnimation 8s ease infinite;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Light translucent overlay */
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Title styling */
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    gap:20px;
+}
+
+/* Styling for input fields */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+/* Styling for input placeholders */
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Bright white */
+    opacity: 1; /* Ensure the placeholder is fully opaque */
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+p {
+    color: white;
+}

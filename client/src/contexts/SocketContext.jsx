@@ -6,12 +6,12 @@ const SocketContext = createContext();
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }) => {
-    const [socket] = useState(() => io('http://localhost:3000')); // Connect to the backend server
+    const [socket] = useState(() => io('http://localhost:3000')); // Here I connected to the backend server
     const [roomCode, setRoomCode] = useState('');
     const [question, setQuestion] = useState('');
     const [winner, setWinner] = useState(null);
-    
-
+    const [userName, setUserName] = useState(''); 
+    const [userPoints, setUserPoints] = useState(0);
     useEffect(() => {
         // Listen for the room code from the server
         socket.on('roomCode', ({ roomCode }) => {
@@ -34,8 +34,11 @@ export const SocketProvider = ({ children }) => {
 
 
             setTimeout(() => setWinner(null), 20000);
+
+            
         });
 
+        
         return () => socket.off('roomCode'); // Clean up event listener on unmount
         socket.off('newQuestion');
         socket.off('winner');
@@ -43,9 +46,10 @@ export const SocketProvider = ({ children }) => {
 
     const joinRoom = (roomCode, userName) => {
         socket.emit('joinRoom', { roomCode, userName });
+        setUserName(userName);
       };
     return (
-        <SocketContext.Provider value={{ socket, roomCode,  question, joinRoom, winner }}>
+        <SocketContext.Provider value={{ socket, roomCode,  question, joinRoom, winner, userName, userPoints }}>
             {children}
         </SocketContext.Provider>
     );

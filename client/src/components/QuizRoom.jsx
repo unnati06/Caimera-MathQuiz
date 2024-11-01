@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSocket } from "../contexts/SocketContext";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/QuizRoom.css';
 const QuizRoom = () => {
 
 
@@ -21,7 +21,7 @@ const QuizRoom = () => {
     };
   return (
     <div>
-            <h1>Real-Time Quiz Room</h1>
+            <h1>Hello Math Geeks.</h1>
             
             {/* Display generated room code for reference */}
             {roomCode && (

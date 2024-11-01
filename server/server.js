@@ -40,6 +40,7 @@ let currentQuestion = generateRandomQuestion();
 
 let answerSubmitted = false; 
 
+
 // Socket.IO connection
 io.on('connection', (socket) => {
     console.log('New client connected', socket.id);
@@ -62,6 +63,8 @@ io.on('connection', (socket) => {
         // Notify others in the room that a new user joined
         socket.to(roomCode).emit('userJoined', { userName, roomCode });
         io.to(roomCode).emit('newQuestion', { question: currentQuestion.question });
+
+    
     });
 
     //Handle submit answer
@@ -71,6 +74,7 @@ io.on('connection', (socket) => {
             answerSubmitted = true; // Mark as submitted to prevent multiple winners
             io.to(currentRoomCode).emit('winner', { winner: userName, correctAnswer: answer });
             console.log(`${userName} is the winner with the answer: ${answer}`);
+          
 
             setTimeout(() => {
                 currentQuestion = generateRandomQuestion(); // Generate a new question
