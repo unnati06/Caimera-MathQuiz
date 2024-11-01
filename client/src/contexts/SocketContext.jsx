@@ -6,7 +6,7 @@ const SocketContext = createContext();
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }) => {
-    const [socket] = useState(() => io('http://localhost:3000')); // Here I connected to the backend server
+    const [socket] = useState(() => io('https://caimera-mathquiz.onrender.com')); // Here I connected to the backend server
     const [roomCode, setRoomCode] = useState('');
     const [question, setQuestion] = useState('');
     const [winner, setWinner] = useState(null);
